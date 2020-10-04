@@ -1,0 +1,184 @@
+<div class="product-main" *ngIf='product'>
+  <div class="top" fxLayout>
+    <div class="container">
+      <div class="product-images"
+         fxLayoutAlign='center center'
+         fxLayout='column'
+         >
+      <div class="main-image">
+        <img src="{{mainImage}}" alt="">
+        
+      </div>
+      <div class="gallery" fxLayoutAlign='center center'>
+        <div class="image-container" *ngFor='let img of product.imagePaths' (click)='changeMainImage($event)'>
+          <img src="{{img}}" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="product-details" >
+      <h2 class="name">{{product.name}}</h2>
+      <div fxLayoutAlign='start center'>
+          <!-- ngfor loops over 5 times, ngif itrates while rating is valid and goes to 'else notactive' ng-template-->
+        <ul *ngFor="let num of [0,1,2,3,4]">
+          <li class="fa fa-star active" *ngIf='num < product.totalRatings/product.reviews.length; else notactive'></li>
+          <ng-template #notactive>
+            <li class="fa fa-star"></li>
+          </ng-template> 
+        </ul>
+        <div class="direct" fxLayout>
+          <p (click)='slideToReviews(bottom,description,reviews)'>{{product.reviews.length}} reviews</p>
+          <div class="vert-spacer"></div>
+          <p (click)='slideToReviews(bottom,description,reviews)' >write a review</p>
+        </div>
+      </div>
+      <div class="price" fxLayoutAlign='start center' *ngIf="product.salePercent == 0">
+        <div class="after">
+          {{product.price | currency: EGP}}
+        </div>
+      </div>
+      <div class="price" fxLayoutAlign='start center' *ngIf="product.salePercent > 0">
+        <div class="after" >
+          {{(product.price - (product.price*(product.salePercent/100))) | currency: EGP}}
+        </div>
+        <div class="before">
+         <del>{{product.price | currency: EGP}} </del>
+        </div>
+      </div>
+      <div class="specfications">
+        <p>product code: <span>#{{product.id}}</span></p>
+        <p>availability: <span>{{product.quantityAvailable}}</span></p>
+      </div>
+      <div class="partition"></div>
+      <div class="description">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores quisquam eum officiis? Pariatur, maiores accusantium voluptates nam, ullam molestiae, id facere temporibus praesentium magnam perspiciatis a quam eos cupiditate repudiandae?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, accusantium fugiat in praesentium quis perferendis odit itaque omnis minus porro unde reiciendis error et ea, ipsum enim, debitis cupiditate laudantium.
+      </div>
+      <div class="partition"></div>
+      <div class="mb">
+        <div class="quantity" fxLayoutAlign='start center' *ngIf='product.quantityAvailable > 0'>
+          <span>qty:</span>
+          <div class="selector" fxLayoutAlign='center center'>
+            <p (click)='increaseQuantity(quantity)'>+</p>
+            <div class="vert-spacer"></div>
+              <span #quantity>1</span>
+            <div class="vert-spacer"></div>
+            <p (click)='decreaseQuantity(quantity)'>-</p>
+          </div>
+        </div>
+        <div class="buttons">
+          <ng-template [ngIf]="product.quantityAvailable > 0">
+            <button class="basic-button" (click)="addToCart()"><i class="fa fa-shopping-cart"></i> add to cart</button>
+          </ng-template>
+          <ng-template [ngIf]="product.quantityAvailable == 0">
+            <button class="basic-button disabled">sold out</button>
+          </ng-template>
+          <button class="square-button"><i class="fa fa-heart"></i></button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="container">
+      <div  #bottom class="titles" fxLayoutAlign='center center'>
+        <h2 class="active"
+            #description
+            (click)='toggleTitleActive($event,description,reviews)'
+            >description<div class="underscore"></div></h2>
+        <div class="vert-spacer"></div>
+        <h2 class=""
+            #reviews
+            (click)='toggleTitleActive($event,description,reviews)'
+            >reviews<div class="underscore"></div></h2>
+      </div>
+      <div class="description" *ngIf="description.getAttribute('class') == 'active'">
+        <div class="body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis non corrupti recusandae sapiente beatae eveniet amet, est, corporis maxime doloribus sequi cum optio, asperiores voluptatibus quia deleniti voluptates exercitationem totam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. A, deleniti atque provident laudantium inventore quisquam adipisci repellat et odio necessitatibus quos esse quidem tempore numquam explicabo modi nihil ipsam mollitia!
+             porro at? Laborum quam est eligendi pariatur perspiciatis tempore quae.
+          </p>
+        </div>
+      </div>
+      <div class="reviews"
+           fxLayout='column'
+           *ngIf="reviews.getAttribute('class') == 'active'"
+           >
+        <div class="user-reviews">
+          <div class="reviews-small" *ngFor='let rev of product.reviews; let i = index' [hidden]="showMore">
+            <div class="cell" *ngIf='i < 5'>
+              <div class="name-date" fxLayoutAlign='center center'>
+                <strong class="name" fxFlex='50'>{{rev.name}}</strong>
+                <div class="vert-spacer"></div>
+                <p class="date" fxFlex='50'>{{rev.date}}</p>
+              </div>
+              <div class="text" 
+                   fxLayout='column'
+                   fxLayoutAlign='center center'>
+                   <p>{{rev.comment}}</p>
+                <ul fxLayout>
+                  <li *ngFor="let num of [0,1,2,3,4]">
+                    <i class="fa fa-star active" *ngIf="num < rev.rating; else notactive"></i>
+                    <ng-template #notactive>
+                      <i class="fa fa-star"></i>
+                    </ng-template>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="more" fxLayoutAlign='center center' *ngIf="reviewsOver5 && !showMore" (click)='showMoreOrLess()'>
+            <p>show more</p>
+          </div>
+
+          <div class="reviews-all" *ngFor='let rev of product.reviews; let i = index' [hidden]="!showMore">
+            <div class="cell">
+              <div class="name-date" fxLayoutAlign='center center'>
+                <strong class="name" fxFlex='50'>{{rev.name}}</strong>
+                <div class="vert-spacer"></div>
+                <p class="date" fxFlex='50'>{{rev.date}}</p>
+              </div>
+              <div class="text" 
+                   fxLayout='column'
+                   fxLayoutAlign='center center'>
+                   <p>{{rev.comment}}</p>
+                <ul fxLayout>
+                  <li *ngFor="let num of [0,1,2,3,4]">
+                    <i class="fa fa-star active" *ngIf="num < rev.rating; else notactive"></i>
+                    <ng-template #notactive>
+                      <i class="fa fa-star"></i>
+                    </ng-template>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="less" fxLayoutAlign='center center' *ngIf="reviewsOver5 && showMore" (click)='showMoreOrLess()'>
+          <p>show less</p>
+        </div>
+
+        <div class="review-form">
+          <form action="" [formGroup]='reviewForm' #rform='ngForm' (ngSubmit)="onSubmit([r1,r2,r3,r4,r5])" novalidate>
+              <p><span>*</span>Your review</p>
+              <textarea type="text" name='comment' formControlName='comment' rows="8"></textarea>
+              <mat-error style='color: red' *ngIf='formError.comment'>{{formError.comment}}</mat-error>
+            <div class="rating" fxLayoutAlign='start center'>
+              <p><span>*</span>Rating</p>
+              <ul>
+                <input #r1 type="radio" name="rating" value="1">
+                <input #r2 type="radio" name="rating" value="2">
+                <input #r3 type="radio" name="rating" value="3">
+                <input #r4 type="radio" name="rating" value="4">
+                <input #r5 type="radio" name="rating" value="5" checked='checked'>
+              </ul>
+            </div>
+            <div class="sub" fxLayout>
+              <div class="flex-spacer"></div>
+              <button class="basic-button" type="submit" [disabled]='!reviewForm.valid'>submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

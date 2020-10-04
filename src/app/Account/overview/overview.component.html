@@ -1,0 +1,35 @@
+<div class="account-overview">
+    <h2>Account Overview</h2>
+    <div class="row" fxLayout 
+                     fxLayout.lt-md = "column">
+        <div class="card">
+            <div class="header" fxLayoutAlign="start center">
+                <h3>Account Details</h3>
+                <div class="flex-spacer"></div>
+                <div class="icon" fxLayoutAlign="center center" (click)="routeToSibling('./Edit')">
+                    <i class="fa fa-pencil"></i>
+                </div>
+            </div>
+            <div class="body">
+                <h3>{{userInfo.FirstName +" "+ userInfo.LastName}}</h3>
+                <p>{{userInfo.Email}}</p>
+                <a (click)="routeToSibling('./changepass')">ChangePassword</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header" fxLayoutAlign="start center">
+                <h3>Address Book</h3>
+                <div class="flex-spacer"></div>
+                <div class="icon" fxLayoutAlign="center center" (click)="routeToSibling('./Edit')">
+                    <i class="fa fa-pencil"></i>
+                </div>
+            </div>
+            <div class="body">
+                <h5>YOUR DEFAULT SHIPPING ADDRESS:</h5>
+                <p class="name">{{userInfo.FirstName +" "+ userInfo.LastName}}</p>
+                <p class="address">{{userInfo.Address}}</p>
+                <p class="phone">{{userInfo.PhoneNumber}}</p>
+            </div>
+        </div>
+    </div>
+</div>

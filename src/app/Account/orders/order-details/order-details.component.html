@@ -1,0 +1,62 @@
+<div class="order-details">
+    <div class="header" fxLayoutAlign="start center">
+        <div class="back">
+            <i class="fa fa-arrow-left"></i>
+        </div>
+        <h3>Order Details</h3>
+    </div>
+    <div class="partition"></div>
+    <div class="order-info">
+        <h4>order no: {{orderId}}</h4>
+        <p>{{itemCount}} items</p>
+        <p>Placed on {{orderDetails.datePlaced}}</p>
+        <p>Total: EGP {{orderDetails.totalItemPrice + orderDetails.shippingFees}}</p>
+    </div>
+    <div class="partition"></div>
+    <div class="order-items">
+        <h3>items in your order</h3>
+        <div class="item" fxLayout *ngFor="let item of orderProducts">
+            <div class="product-image">
+                <img src="{{item.image}}" alt="">
+            </div>
+            <div class="product-info">
+                <p class="name">{{item.name}}</p>
+                <p class="id order-vars">order id: {{item.productId}}</p>
+                <p class="quantity order-vars">QTY: {{item.quantity}}</p>
+                <p class="price">EGP {{item.price}}</p>
+            </div>
+            <div class="flex-spacer"></div>
+            <div class="details">
+                <button class="basic-button">Buy Again</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" fxLayout
+                     fxLayout.lt-sm="column">
+        <div class="card">
+            <div class="header" fxLayoutAlign="start center">
+                <h3>PAYMENT INFORMATION</h3>
+            </div>
+            <div class="body">
+                <!--<h5>SHIPPING ADDRESS</h5>-->
+                <p>Items Total: {{orderDetails.totalItemPrice}}</p>
+                <p>Shipping fees: {{orderDetails.shippingFees}}</p>
+                <p class="price">Total: EGP {{orderDetails.totalItemPrice + orderDetails.shippingFees}}</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header" fxLayoutAlign="start center">
+                <h3>DELIVERY INFORMATION</h3>
+            </div>
+            <div class="body">
+                <h5>SHIPPING ADDRESS</h5>
+                <p class="name">{{orderDetails.name}}</p>
+                <p class="address">{{orderDetails.city}},{{orderDetails.region}},{{orderDetails.address}}</p>
+                <p class="phone">{{orderDetails.phoneNumber}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="need-help" fxLayoutAlign="center center">
+        <h3>Need Help?</h3>
+    </div>
+</div>

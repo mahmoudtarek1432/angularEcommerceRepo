@@ -1,0 +1,27 @@
+@import "../../../../colorvariables.scss";
+
+.half-width{
+    width: 48.5%
+}
+.full-width{
+    width: 100%;
+}
+.title{
+    h4{
+        margin: 12px 0;
+        color:rgb(66, 66, 66);
+        text-transform: uppercase;
+        font-weight: 400;
+        font-weight: 16px;
+    }
+}
+.spacer{
+    margin: 1.5%;
+}
+
+.notice{
+    height: 30px;
+    border-radius: 5px;
+    margin: 5px 0;
+
+}

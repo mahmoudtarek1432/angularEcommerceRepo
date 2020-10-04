@@ -1,0 +1,64 @@
+<div class="settings">
+  <div class="block" *ngFor="let index of filterKeys">
+    <h3>{{index}}</h3>
+    <div class="options" [ngClass]="index">
+      <div *ngFor="let value of filters[index]">
+        <p (click)='changeProperty(index,$event)'>{{value}}</p>
+      </div>
+      
+    </div>
+  </div>
+  <div class="partition"></div>
+  <div class="block">
+    <div fxLayout fxLayoutAlign='center center'>
+      <h3>rating</h3>
+      <div class="flex-spacer"></div>
+      <button class="basic-button reset-button" (click)='resetRating()'>reset</button>
+    </div>
+    <div class="ratings ratingOptions">
+      <ul class="stars" fxLayout (click)='changePropertyRating("rating",5)'>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <p>&up</p>
+      </ul>
+      <ul class="stars" fxLayout (click)='changePropertyRating("rating",4)'>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star "></li>
+        <p>&up</p>
+      </ul>
+      <ul class="stars"fxLayout (click)='changePropertyRating("rating",3)'>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star "></li>
+        <li class="fa fa-star "></li>
+        <p>&up</p>
+      </ul>
+      <ul class="stars"fxLayout (click)='changePropertyRating("rating",2)'>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star "></li>
+        <li class="fa fa-star "></li>
+        <li class="fa fa-star "></li>
+        <p>&up</p>
+      </ul>
+      <ul class="stars"fxLayout (click)='changePropertyRating("rating",1)'>
+        <li class="fa fa-star active"></li>
+        <li class="fa fa-star "></li>
+        <li class="fa fa-star "></li>
+        <li class="fa fa-star "></li>
+        <li class="fa fa-star "></li>
+        <p>&up</p>
+      </ul>
+    </div>
+  </div>
+  <button class="basic-button" (click)='onApply()'>apply</button>
+  <!--the rating-->
+  <!--price range-->
+</div>

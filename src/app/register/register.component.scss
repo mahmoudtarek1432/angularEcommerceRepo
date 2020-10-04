@@ -1,0 +1,34 @@
+@import '../../colorvariables.scss';
+
+.half-width{
+    width: 47%
+}
+.full-width{
+    width: 100%;
+}
+.container{
+    padding: 50px 20px ;
+}
+.title{
+    h4{
+        margin: 12px 0;
+        color:rgb(66, 66, 66);
+        text-transform: uppercase;
+        font-weight: 400;
+        font-weight: 16px;
+    }
+}
+.partition{
+    background-color: $primary;
+    height: 8px;
+}
+
+.spacer{
+    margin: 5px;
+}
+
+.basic-button{
+    height: 33px;
+    width: 90px;
+    font-size: 13px;
+}

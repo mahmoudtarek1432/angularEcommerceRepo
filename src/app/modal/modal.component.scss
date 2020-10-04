@@ -1,0 +1,91 @@
+@import '../../colorvariables.scss';
+.modal{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0%;
+    height: 100%;
+    width: 75%;
+    background-color: #060608;
+    color: #fff;
+    .banner{
+        margin: 10px 10px;
+        img{
+            width: 120px;
+        }
+    }
+    .nav{
+        margin-top: 32px;
+        ul{
+            li{
+                padding: 10px 10px;
+                font-size: 18px;
+                text-transform: capitalize;
+                font-weight: 500;
+                span{
+                    font-size: 13px;
+                }
+            }
+            .drop-list{
+                border-left: 5px solid $primary;
+                position: relative;
+                background-color: #fff;
+                overflow: hidden;
+                transition: all 2s ease;
+                li{
+                    padding: 10px 13px !important;
+                    color: #000;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
+            .drop-list:hover{
+                height: 0%;
+            }
+        }
+    }
+}
+.copyrights{
+    font-size: 12px;
+}
+
+.close{
+    position: absolute;
+    height: 60px;
+    width: 100%;
+
+    .button{
+        position: relative;
+        width: 36px;
+        height: 36px;
+        background-color: $beige;
+        border-radius: 4px 0 0 4px;
+        .x1{
+            position: absolute;
+            height: 4px;
+            width: 25px;
+            border-radius: 10px;
+            transform: rotate(45deg) !important;
+            background-color: $font-color;
+            color: $font-color;
+            top: 44%;
+            left: 21%;
+            background-color: $camel;
+        }
+        .x2{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 4px;
+            width: 25px;
+            border-radius: 10px;
+            transform: rotate(135deg) !important;
+            margin: 0px;
+            background-color: $font-color;
+            color: $font-color;
+            top: 44%;
+            left: 21%;
+            background-color: $camel;
+        }
+    }
+}

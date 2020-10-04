@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="header">
+    <h3>shopping Cart</h3>
+  </div>
+  <p *ngIf=''>your shopping cart is empty!</p>
+ <!-- <div class="cart">
+    <table cellspacing="0">
+      <tr>
+        <td>image</td>
+        <td>product name</td>
+        <td>Quantity</td>
+        <td>Unit Price</td>
+        <td>Total</td>
+      </tr>
+      <tr *ngFor='let item of cartIs'>
+        <td class="item-image"><img src="{{item.image}}" alt=""></td>
+        <td class="item-name"><a [routerLink]="['/productPage', item.id]">{{item.name}}</a></td>
+        <td class="item-quantity">
+          <div class="quantity-input" fxLayoutAlign='center center'>
+            <input class='quantity' type="text" value='{{item.inCartQuantity}}'>
+            <button class="button blue"><i class="fa fa-retweet"></i></button>
+            <button class="button red"><i class="fa fa-times-circle"></i></button>
+          </div>
+        </td>
+        <td class="item-price">{{item.unitePrice | currency : 'EGP'}}</td>
+        <td class="item-total-price">{{item.unitePrice * item.inCartQuantity | currency : 'EGP'}}</td>
+      </tr>
+    </table>
+  </div>-->
+
+
+  <div class="cart-checkout">
+    <div class="cart-container">
+        <div class="cart-header">
+            <ul>
+                <li class="product">product</li>
+                <li class="quantity">quantity</li>
+                <li class="price">price</li>
+                <li class="product-id">product id</li>
+                <li class="total">total</li>
+            </ul>
+        </div>
+        <div class="cart-item" *ngFor='let item of cartIs'>
+            <div class="product product-item">
+                <img src="{{item.image}}" alt="">
+                <div class="text">
+                    <a [routerLink] = "['/productPage',item.id]">{{item.itemName}}</a>
+                </div>
+            </div>
+            <div class="quantity quantity-item">
+              <div class="quantity-input" fxLayoutAlign='center center'>
+                <input #quantity class='quantity' type="text" value='{{item.inCartQuantity}}'>
+                <button class="button blue" (click)="updateCartItem(item.productId,quantity)"> <i class="fa fa-retweet"></i></button>
+                <button class="button red" (click)="removeCartItem(item.productId)" ><i class="fa fa-times-circle"></i></button>
+              </div>
+            </div>
+            <div class="price price-item">
+                <h3>{{item.unitePrice}} egp</h3>
+            </div>
+            <div class="product-id product-id-item">
+                <p>{{item.productId}}</p>
+            </div>
+            <div class="total total-item">
+                <h3>{{item.inCartQuantity * item.unitePrice}} EGP</h3>
+            </div>
+        </div>
+          </div>
+        </div>
+
+  <div class="header" style="margin-top: 40px">
+    <h3>WHAT WOULD YOU LIKE TO DO NEXT?</h3>
+  </div>
+  <div class="coupon">
+    <h3>use coupon code</h3>
+    <div class="enter">
+      <p>enter your coupon here</p>
+      <div class="split" fxLayoutAlign='center center'>
+        <input type="text" placeholder="Enter your coupon here">
+        <button class="basic-button">apply button</button>
+      </div>
+    </div>
+  </div>
+  <div class="total-recipt" fxLayout>
+    <div class="flex-spacer"></div>
+    <table>
+      <tr>
+        <td>sub-total:</td>
+        <td>{{totalPrice}} EGP</td>
+      </tr>
+      <tr>
+        <td>total<small>(Shipping.inc):</small></td>
+        <td> {{totalPrice - (totalPrice * (couponPercent/100)) }} EGP</td>
+      </tr>
+    </table>
+  </div>
+  <div class="next" fxLayout>
+    <button class="basic-button">continue Shopping</button>
+    <div class="flex-spacer"></div>
+    <button class="basic-button">checkout</button>
+  </div>

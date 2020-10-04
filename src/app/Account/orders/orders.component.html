@@ -1,0 +1,46 @@
+<div class="orders">
+    <h3 class="title">Orders</h3>
+    <div class="headers" fxLayout>
+        <div #open class="block active" (click)="orderTypeClick($event,close,open)">
+            open orders
+        </div>
+        <div #close class="block" (click)="orderTypeClick($event,close,open)">
+            closed orders
+        </div>
+    </div>
+    <ng-template [ngIf] = "openOrClosed"  [ngIfElse]="closedList">
+        <div class="order-item" fxLayout *ngFor="let product of openOrdersList">
+            <div class="product-image">
+                <img src="{{product.firstItemImage}}" alt="{{product.firstItemName}}">
+            </div>
+            <div class="product-info">
+                <p class="name">{{product.firstItemName}}</p>
+                <p class="id order-vars">{{product.orderId}}</p>
+                <p class="status open">{{product.orderStatus}}</p>
+                <p class="date">{{product.datePlaced}}</p>
+            </div>
+            <div class="flex-spacer"></div>
+            <div class="details" (click)="displayDetails(product.orderId)">
+                <p>See Details</p>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #closedList>   
+        <div class="order-item" fxLayout *ngFor="let product of closedOrdersList">
+            <div class="product-image">
+                <img src="{{product.firstItemImage}}" alt="{{product.firstItemName}}">
+            </div>
+            <div class="product-info">
+                <p class="name">{{product.firstItemName}}</p>
+                <p class="id order-vars">{{product.OrderId}}</p>
+                <p class="status closed">{{product.orderStatus}}</p>
+                <p class="date">{{product.datePlaced}}</p>
+            </div>
+            <div class="flex-spacer"></div>
+            <div class="details">
+                <p>See Details</p>
+            </div>
+        </div>
+    </ng-template>
+</div>

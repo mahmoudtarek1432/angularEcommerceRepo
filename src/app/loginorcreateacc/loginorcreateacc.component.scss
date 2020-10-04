@@ -1,0 +1,47 @@
+@import '../../colorvariables.scss';
+
+.input-width{
+    width: 250px;
+}
+.container{
+ 
+}
+.partition{
+    background-color: $primary;
+    height: 8px;
+    width: 100%;
+}
+.log-reg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vert-partition{
+    height: 200px;
+    width: 1px;
+    background-color: rgb(221, 221, 221);
+    margin:  50px 16px 0 16px;
+}
+
+.signinup-component{
+    max-width: 50%;
+    width: 100%;
+}
+
+@media(max-width: 400px){
+    .log-reg{
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 600px){
+    .signinup-component{
+        max-width: 100%;
+        width: 100%;
+    }
+    .vert-partition{
+        display: none;
+    }
+}

@@ -1,0 +1,179 @@
+@import '../../colorvariables.scss';
+.lg-screen{
+    z-index: 999;
+    position: relative;
+}
+
+.top-header{
+    height: 50px;
+    position: relative;
+    z-index: 3;
+    .highlight{
+        color: $primary
+    }
+}
+
+a{
+    color: $font-color;
+    
+}
+
+.toggle{
+    position: relative;
+    margin: 0 16px;
+}
+
+.myaccount-dropdown{
+    position: relative;
+    color: $font-color;
+    font-size: 13px;
+    height: 100%;
+    margin-right: 10%;
+    transform:scale(1, 0.97);
+    cursor: pointer;
+    .fa{
+        font-size: 12px;
+        margin-right: 5px;
+        font-weight: 100;
+
+    }
+    .dropdown{
+        
+        .highlight{
+            color: $font-color !important;
+            background-color: rgb(235, 235, 235);
+            
+        }
+    }
+}
+
+
+
+nav{
+    height: 100px;
+    width: 100%;
+    background-color: #fff;
+    transition: all 0.3s ease !important;
+    position: relative;
+    z-index: 1;
+    .container{
+        height: 100%;
+    }
+    ul{
+        li{
+            color: $font-color;
+            font-size: 15px;
+            
+            text-transform: uppercase;
+            cursor: pointer;
+            i{
+               
+                font-weight: 100;
+                font-size: 9px;
+                margin-left: 3px;
+            }
+        }
+    }
+    .dropdown{
+        width: 150px;
+        left: -20%;
+        li{
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+    
+}
+
+nav.highlight{
+    background-color: #fff !important;
+}
+
+.nav-icon{
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    .float{
+        z-index: 6;
+        position: absolute;
+        color: #fff;
+        font-size: 12px;
+        
+        top: -10px;
+        right: -14px;
+        width: 16px;
+        height: 16px;
+        border-radius: 10px;
+        background-color: $primary;
+    }
+    .dropdown{
+        width: auto;
+        left: -100px;
+        input{
+            border: 0;
+            height: 34px;
+            width: 163px;
+            padding: 0 10px;
+            font-size: 16px;
+            color: rgb(155, 155, 155);
+        }
+        button{
+            background: transparent;
+            border: 0;
+            color: rgb(155, 155, 155);
+        }
+    }
+}
+span.highlight{
+    color: $primary !important;
+}
+
+
+
+
+
+
+@media(max-width: 1445px){
+    .myaccount-dropdown{
+        margin-right: 3%;
+    }
+}
+@media(max-width: 1191px){
+    .container{
+        width: initial;
+    }
+}
+
+@media(max-width: 890px){
+    .container{
+        flex-direction: column !important;
+    }
+    .image{
+        margin-top: 10px;
+    }
+    .half{
+        padding-bottom: 15px;
+        width: initial !important;
+    }
+}
+
+@media(max-width: 716px){
+    .container{
+        flex-direction: column !important;
+    }
+    .image{
+        margin-top: 10px;
+    }
+    nav{
+        li{
+            font-size: 11px !important;
+        }
+    }
+}
+@media(max-width: 600px){
+    .lg-screen{
+        display: none;
+    }
+}
+
+

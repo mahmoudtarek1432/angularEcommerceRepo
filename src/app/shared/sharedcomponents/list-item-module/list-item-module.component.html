@@ -1,0 +1,46 @@
+<!--item view in a list-->
+
+<div class="product-layout">
+  <div class="product"
+     fxLayout='column'
+     fxLayoutAlign="start center">
+    <div class="product-image">
+      <img class="firstimg" src="{{product.imagePathsArr[0]}}" alt="">
+      <ng-template [ngIf]='product.imagePathsArr[1]'>
+        <img class="secondimg" src="{{product.imagePathsArr[1]}}" alt="">
+      </ng-template>
+    </div>
+    <p class="name" [routerLink]="['/productPage', product.id]" >{{product.name}}</p>
+    <ul fxLayout>
+      <li *ngFor="let num of [0,1,2,3,4]">
+        <i class="fa fa-star active" *ngIf='num < product.totalRatings/product.reviews.length; else notactive'></i>
+        <ng-template #notactive>
+          <i class="fa fa-star"></i>
+        </ng-template> 
+      </li>
+    </ul>
+    <div class="price" fxLayout='column' fxLayoutAlign="center center" *ngIf='product.salePercent == 0'>
+      <p class="after">{{product.price | currency : 'EGP'}}</p>
+      <div class="before hide">
+        <span>.</span>
+      </div>
+    </div>
+    <div class="price" fxLayout='column' fxLayoutAlign="center center" *ngIf='product.salePercent > 0'>
+      <p class="after">{{(product.price - (product.price*(product.salePercent/100))) | currency: 'EGP'}}</p>
+      <div class="before">
+        <del>{{product.price | currency : 'EGP'}}</del>
+      </div>
+    </div>
+    <div class="extra"
+        fxLayout='column'
+        fxLayoutAlign="center center">
+      <div class="description">{{product.description}}</div>
+      <ul class="icons" fxLayoutAlign="start start" style="margin-top: 24px;">
+        <a fxLayoutAlign="center center" appHoverhighlight (click)="addToCart()"><i class="fa fa-shopping-cart"></i></a>
+        <a fxLayoutAlign="center center" fxFlexOffset='25px' appHoverhighlight (click)="addToSavedItems()"><i class="fa fa-heart"></i></a>
+        <a fxLayoutAlign="center center" fxFlexOffset='25px' appHoverhighlight (click)="openProductDialog(product)"><i class="fa fa-expand"></i></a>
+      </ul>
+    </div>
+  </div>
+  <div class="prc" *ngIf="product.salePercent > 0">-{{product.salePercent}}%</div>
+</div>

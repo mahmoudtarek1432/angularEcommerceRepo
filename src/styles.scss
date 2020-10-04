@@ -1,0 +1,261 @@
+/* You can add global styles to this file, and also import other style files */
+
+//$fa-font-path : 'node_modules/font-awesome/fonts';
+@import '../node_modules/font-awesome/scss/font-awesome.scss';
+@import './colorvariables.scss';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+*{
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+    margin: 0;
+}
+
+.container{
+    margin: auto;
+    width: 1200px;
+
+}
+
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+.flex-spacer{
+    flex: 1 1 auto;
+}
+
+.highlight{
+    
+    transition: all 0.6s ease !important;
+}
+
+.slide{
+    margin-left: 10px;
+    color: #fff !important;
+}
+
+.partition{
+    height: 1px;
+    background-color: rgb(231, 231, 231);
+}
+
+ul{
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+}
+
+.dropdown{
+    position: absolute;
+    opacity: 0;
+    top: 100%;
+    left: -15%;
+    background-color: #fff;
+    overflow: hidden;
+    width: 130%;
+    padding: 10% 0;
+    box-shadow: 0px 0px 4px 2px rgba(212, 212, 212, 0.52);
+    ul{
+        li{
+            padding: 8% 15%;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.scrolled{
+    position: fixed !important;
+    top: 0;
+    background-color: rgba(250, 241, 242, 0.959) !important;
+    .contain{
+        right:50%; // Move it to the right for 50% of parent element
+        margin-right:-600px; // You need here to put 1/2 of what you have below in width
+        width:1200px;
+    }
+}
+
+.basic-button{
+    height: 40px;
+    width: 110px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: $primary;
+    color: #fff;
+    border: 1px solid $primary;
+    letter-spacing: 1px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+
+@media(max-width: 1191px){
+    .container{
+        width: initial;
+    }
+}
+
+//item card responsive
+.our-products{
+    padding: 20px 0;
+    .title{
+        .dash{
+            height: 2px;
+            width: 40px;
+            font-size: 23px;
+            background-color: #000;
+            margin: 0 14px;
+        }
+        h3{
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+    }
+    .products-grid{
+        display: grid;
+        grid-template-columns: 280px 280px 280px 280px;
+        gap: 20px;  
+    }
+}
+.dialog-mobile{
+    border-radius: 15px 15px 0 0;
+    padding-top: 0px;
+    overflow-y: auto;
+}
+
+@media(max-width: 1220px){
+    .products-grid{
+        grid-template-columns: 300px 300px 300px !important;
+        column-gap: 40px !important;
+        row-gap: 30px !important;
+        .product-layout{
+            width: 300px !important;
+
+        }
+    }
+}
+
+@media(max-width: 975px){
+    .products-grid{
+        grid-template-columns: 240px 240px 240px !important;
+        column-gap: 25px !important;
+        row-gap: 20px !important;
+        .product-layout{
+            width: 240px !important;
+
+        }
+    }
+}
+
+@media(max-width: 800px){
+    .products-grid{
+        grid-template-columns: 240px 240px !important;
+        column-gap: 40px !important;
+        row-gap: 30px !important;
+        .product-layout{
+            width: 240px !important;
+
+        }
+    }
+}
+
+@media(max-width: 590px){
+    .products-grid{
+        grid-template-columns: 220px 220px !important;
+        column-gap: 20px !important;
+        row-gap: 10px !important;
+        .product-layout{
+            width: 220px !important;
+            height: 310px !important;
+            .product{
+                padding: 10px !important
+            }
+            .product-image{
+                width: 85% !important;
+                height: 180px !important;
+                padding: 0 7.5% !important;
+                img{
+                    width: 85% !important;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 450px){
+    .products-grid{
+        grid-template-columns: 180px 180px !important;
+        column-gap: 10px !important;
+        row-gap: 10px !important;
+        .product-layout{
+            width: 180px !important;
+            height: 287px !important;
+            .product-image{
+                width: 90% !important;
+                height: 150px !important;
+                padding: 0 5% !important
+            }
+        }
+    }
+}
+
+@media(max-width: 380px){
+    .title{
+        h3{
+            font-size: 18px !important;
+        }
+        .dash{
+            width: 28px !important;
+        }
+    }
+    .products-grid{
+        grid-template-columns: 160px 160px !important;
+        column-gap: 10px !important;
+        row-gap: 10px !important;
+        .product-layout{
+            width: 160px !important;
+            height: 270px !important;
+            .product-image{
+                width: 90% !important;
+                height: 150px !important;
+                padding: 0 5px !important
+            }
+        }
+        .product{
+            .name{
+                font-size: 14px !important;
+                letter-spacing: initial !important;
+            }
+            ul{
+                li{
+                    font-size: 13px !important;
+                }
+            }
+            .before{
+                font-size: 15px !important;
+            }
+            .after{
+                font-size: 18px !important;
+            }
+            .description{
+                margin: 4px 0 !important;
+            }
+            .icons{
+                margin-top: 10px !important;
+                a{
+                    margin: 0 5px !important;
+                }
+            }
+        }
+    }
+}

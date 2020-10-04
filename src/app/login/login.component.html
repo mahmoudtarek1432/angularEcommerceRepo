@@ -1,0 +1,25 @@
+<div fxLayout='column' fxLayoutAlign='center start'> 
+  <div class="title">
+    <h4>login</h4>
+  </div>
+  <form action="" method="POST" ngNoForm [formGroup]='loginForm' style="width: 100%;" (ngSubmit)="submitLoginCredentials()">
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput  formControlName='email' name="email">
+      <mat-error style="color: red; font-size: 10px;" *ngIf='formErrors.email'>{{formErrors.email}}</mat-error>
+    </mat-form-field>
+    <div class="spacer"></div>
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName='password' type="password" name="password" pattern="[a-zA-Z0-9]*">
+      <mat-error style="color: red; font-size: 10px;" *ngIf='formErrors.password'>{{formErrors.password}}</mat-error>
+    </mat-form-field>
+    <div class="forgot">
+      <a href="#">forgot your password?</a>
+    </div>
+    <div style="width: 100%;" fxLayoutAlign='end center'>
+      <button class="basic-button" type="submit" [disabled]='!loginForm.valid'>login</button>
+    </div>
+  </form>
+</div>
+

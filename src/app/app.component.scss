@@ -1,0 +1,33 @@
+.main-page-layer{
+    position: relative;
+    z-index: 1;
+    .main-body{
+        position: relative;
+        z-index: 1;
+    }
+    .slideup{
+        position: fixed;
+        z-index: 2;
+        display: none;
+        opacity: 0;
+        content: "";
+        bottom: 25px;
+        height: 50px;
+        width: 50px;
+        right: 25px;
+        background-color: #FED09E;
+        color: #D09C72;
+        border-radius: 3px;
+        transition: all 0.5s ease;
+    }
+    
+    .shown{
+        display: flex !important;
+        opacity: 1 !important;
+    }
+}
+.modal-layer{
+    position: relative;
+    z-index: 2;
+
+}

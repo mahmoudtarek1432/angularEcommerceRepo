@@ -1,0 +1,114 @@
+<div class="list-main">
+  <div class="container" fxLayout fxLayoutAlign='center start'>
+    <div class="desk-filter">
+      <app-filter></app-filter>
+    </div>
+    <div class="list">
+      <div class="options-bar" fxLayout>
+        <div class="filter" (click) = 'openFilterDialog()'>
+          <button class="basic-button">filter</button>
+        </div>
+        <div class="flex-spacer"></div>
+        <div class="sort-by" fxLayout fxLayoutAlign='center center'>
+          <p>Sort By:</p>
+          <select name="sortselect"  (change)='changeListParams($event,"orderby")' >
+            <option value="">A-Z</option>
+            <option value="">Z-A</option>
+            <option value="">Best Selling</option>
+            <option value="">Featured</option>
+            <option value="">New To Old</option>
+            <option value="">Old To New</option>
+            <option value="">High To Low</option>
+            <option value="">Low To High</option>
+          </select>
+        </div>
+        <div class="show" fxLayout fxLayoutAlign='center center'>
+          <p>show: </p>
+          <select #listSizeSelect (change)='changeListParams($event,"listSize")' name="showselect">
+            <option value="">15</option>
+            <option value="">30</option>
+            <option value="">ALL</option>
+          </select>
+        </div>
+        <div class="layout" fxLayout fxLayoutAlign='center center'>
+          <div class="square" (click)='toGrid()'>
+            <div class="row" fxLayout>
+              <i class="fa fa-square"></i>
+              <i class="fa fa-square"></i>
+            </div>
+            <div class="row" fxLayout>
+              <i class="fa fa-square"></i>
+              <i class="fa fa-square"></i>
+            </div>
+          </div>
+          <i class="fa fa-bars" fxLayout (click)='toRow()'></i>
+        </div>
+      </div>
+      <div class="partition"></div>
+      <div class="list-products">
+        <div class="center" fxLayoutAlign='center center'>
+         <div class="products-grid" *ngIf="display == 'grid'">
+            <div *ngFor='let product of products; let i = index'>
+             <appListItemModule [(product)] = 'products[i]'></appListItemModule>
+            </div>
+          </div>
+          <div class="products-row" #container fxLayoutALign *ngIf="display == 'row'">
+              <div class="product-layout-wide" *ngFor='let product of products; let i = index'>
+                <div class="product"
+                   fxLayout='row'
+                   fxLayoutAlign="start center">
+                  <div class="product-image">
+                    <img class="firstimg" src="{{product.imagePathsArr[0]}}" alt="">
+                    <ng-template [ngIf]='product.imagePathsArr[1]'>
+                      <img class="secondimg" src="{{product.imagePathsArr[1]}}" alt="">
+                    </ng-template>
+                  </div>
+                  <div class="price-name" fxLayout='column'>
+                    <p class="name">{{product.name}}</p>
+                  <ul fxLayout>
+                    <li *ngFor="let num of [0,1,2,3,4]">
+                      <i class="fa fa-star active" *ngIf='num < product.totalRatings/product.reviews.length; else notactive'></i>
+                      <ng-template #notactive>
+                        <i class="fa fa-star"></i>
+                      </ng-template> 
+                    </li>
+                  </ul>
+                  <div class="desc-container">
+                    <div class="description">{{product.description}}</div>
+                  </div>
+                  <div class="price" fxLayout='row'  *ngIf='product.salePercent == 0'>
+                    <p class="after">{{product.price | currency : 'EGP'}}</p>
+                  </div>
+                  <div class="price" fxLayout='row' fxLayoutAlign='start center'  *ngIf='product.salePercent > 0'>
+                    <p class="after">{{product.price | currency : 'EGP'}}</p>
+                    <div class="before">
+                      <del>{{(product.price - (product.price*(product.salePercent/100))) | currency: 'EGP'}}</del>
+                    </div>
+                  </div>
+                  <div class="icons-desc"
+                      fxLayout='row'
+                     >
+                    <ul class="icons" fxLayout='row' fxLayoutAlign="start start">
+                      <a fxLayoutAlign="center center" href="#" appHoverhighlight><i class="fa fa-shopping-cart"></i></a>
+                      <a fxLayoutAlign="center center" fxFlexOffset='5px'  href="#" appHoverhighlight><i class="fa fa-heart"></i></a>
+                      <a fxLayoutAlign="center center" fxFlexOffset='5px' appHoverhighlight (click)="openProductDialog(product)"><i class="fa fa-expand"></i></a>
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="paggination" fxLayoutAlign='center center'>
+        <div fxLayout>
+          <div class="basic-button arrow" fxLayoutAlign='center center' appHoverhighlight><i class="fa fa-chevron-left"></i></div>
+          <div *ngFor='let page of pagesNgFor;let i = index'>
+            <div class="basic-button" fxLayoutAlign='center center' appHoverhighlight (click)='pageGoTo(i)'>{{i+1}}</div>
+          </div>
+          <div class="basic-button arrow" fxLayoutAlign='center center' appHoverhighlight><i class="fa fa-chevron-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

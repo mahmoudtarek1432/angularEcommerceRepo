@@ -1,0 +1,27 @@
+<div class="saved-items">
+    <h2 *ngIf="savedItems; else elseBlock">saved items({{savedItems.length}})</h2>
+    <ng-template #elseBlock>
+        <h2>There is no saved items found</h2>
+    </ng-template>
+    <div class="items-list">
+        <div class="item" fxLayout *ngFor="let item of savedItems">
+            <div class="product-image">
+                <img (click) = "goToProduct(item.id)" src="{{item.image}}" alt="">
+            </div>
+            <div class="product-info">
+                <p class="name" [routerLink]="['/productPage', item.id]">{{item.name}}</p>
+                <p class="order-vars"></p>
+                <p class="price">EGP {{item.price - (item.price * (item.salePercent/100))}}
+                    <span class="sale">{{item.salePercent}}%</span>
+                </p>
+                <p class="before"><del>EGP {{item.price}}</del> </p>
+            </div>
+            <div class="flex-spacer"></div>
+            <div class="details" fxLayout="column">
+                <button class="basic-button">Buy Again</button>
+                <p></p>
+                <button class="basic-button remove" (click)="removeSavedItem(item.id)">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>

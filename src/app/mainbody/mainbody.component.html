@@ -1,0 +1,33 @@
+<div class="main" >
+    <div class="cont"[@mainslide]='globals.modalstatus'>
+        <div class="mobile-screen" >
+            <div class="mb-nav" fxLayoutAlign="center center">
+                <ul (click)='modaltriggered()' >
+                    <li class="burger"></li>
+                    <li class="burger"></li>
+                    <li class="burger"></li>
+                </ul>
+                <div class="flex-spacer"></div>
+
+                
+                <div class="search" fxLayoutAlign='end center' [@searchbar]='serachbar'>
+                    <!--<form action="" fxLayoutAlign='center center'>
+                        <input type="text" name="search" placeholder="search"[@visibility]='serachbar'>
+                        <button type="hidden">Go</button>
+                    </form>-->
+                    <span class="fa fa-search fa-lg" (click)='onClickSearch()'></span>
+                </div>
+            </div>
+        </div>
+        <div class="close" (click)='modaltriggered()' [@clicked]="globals.modalstatus">
+        </div>
+        <app-header></app-header>
+        <router-outlet></router-outlet>
+        <div class="slideup" (click)='slideup()' appNavbarscroll
+            fxLayoutAlign="center center">
+            <span class="fa fa-chevron-up"></span>
+        </div>
+        <app-footer></app-footer>
+
+    </div>
+</div>

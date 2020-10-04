@@ -1,0 +1,79 @@
+<div class="home">
+  <div class="banner" 
+       fxLayoutAlign='center center' *ngIf='displayedSlider'>
+    <div class="filler">
+      <img *ngIf='transition' [@banner]  src="{{displayedSlider.image}}" alt="{{displayedSlider.name}}">
+    </div>
+    <div class="content" *ngIf='transition' [@content]>
+      <h2>{{displayedSlider.name | uppercase}}</h2>
+      <h1>{{displayedSlider.header | uppercase}}</h1>
+      <h3>{{displayedSlider.body}}</h3>
+      <button class="basic-button" type="submit">shop now</button>
+    </div>
+  </div>
+
+  <div class="featured" fxLayoutALign="center center">
+    <div class="featured-item fone" fxFlex fxLayoutAlign="center center ">
+      <div class="filler">
+        <img src="" alt="">
+      </div>
+      <div class="featured-content fcone"
+           fxLayout='column'
+           fxLayoutAlign="center center">
+        <h5>gift collection</h5>
+        <h4>FLOWER LOVER GIFT SET</h4>
+        <h3>25% OFF</h3>
+        <button class="basic-button">shop now</button>
+      </div>
+    </div>
+    <div class="featured-item ftwo"fxFlex fxLayoutAlign="center center">
+      <div class="filler">
+        <img src="" alt="">
+      </div>
+      <div class="featured-content fctwo"
+           fxLayout='column'
+           fxLayoutAlign="center center">
+        <h5>gift collection</h5>
+        <h4>FLOWER LOVER GIFT SET</h4>
+        <h3>25% OFF</h3>
+        <button class="basic-button">shop now</button>
+      </div>
+    </div>
+    <div class="featured-item fthree"fxFlex fxLayoutAlign="center center">
+      <div class="filler">
+        <img src="" alt="">
+      </div>
+      <div class="featured-content fcthree"
+           fxLayout='column'
+           fxLayoutAlign="center center">
+        <h5>gift collection</h5>
+        <h4>FLOWER LOVER GIFT SET</h4>
+        <h3>25% OFF</h3>
+        <button class="basic-button">shop now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="our-products">
+    <div class="container">
+      <div class="title"
+           fxLayoutAlign='center center'>
+        <div class="dash"></div>
+        <h3>our products</h3>
+        <div class="dash"></div>
+      </div>
+      <div class="center" fxLayoutAlign='center center'>
+        <div class="products-grid">
+          <div *ngFor='let product of products; let i = index'>
+            <appListItemModule [(product)] = 'products[i]'></appListItemModule>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lower-banner">
+    <div class="image" appBannerscroll>
+
+    </div>
+  </div>
+</div>

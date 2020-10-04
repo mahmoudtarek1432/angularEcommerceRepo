@@ -1,0 +1,116 @@
+@import '../../colorvariables.scss';
+
+.mobile-screen{
+    display: none;
+    z-index: 1;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: $primary;
+    .mb-nav{
+        height: 100%;
+        width: 100%;
+        padding: 0 20px;
+        ul{
+           
+            .burger{
+                height: 3px;
+                width: 25px;
+                border-radius: 10px;
+                margin: 4px;
+                background-color: rgb(235, 235, 235);
+            }
+        }
+        
+    }
+}
+
+.main{
+    overflow: hidden;
+
+}
+
+.cont{
+    position: relative;
+}
+
+.search{
+    border: 2px solid rgba(199, 199, 199, 0.472);
+    background-color: rgba(77, 0, 29, 0.637);
+    border-radius: 20px;
+    color: rgb(184, 184, 184);
+    overflow: hidden;
+    height: 36px;
+    width: 43px;
+    padding: 5px;
+    input{
+        font-size: 17px;
+        height: 25px;
+        width: 170px;
+        color: rgb(184, 184, 184);
+        background: transparent;
+        border: 0;
+        padding: 0 10px;
+    }
+    button{
+        visibility: hidden;
+    }
+    .fa-search{
+        margin: 0 5px ;
+    }
+}
+
+.close{
+    position: absolute;
+    z-index: 99999;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    opacity: 0;
+    background-color: rgba(37, 37, 37, 0.527);
+}
+
+.slideup{
+    position: fixed;
+    z-index: 2;
+    display: none;
+    opacity: 0;
+    content:"";
+    bottom:100px;
+    height:50px;
+    width:50px;
+    right:50px;
+    background-color: #FED09E;
+    color: #D09C72;
+    border-radius: 3px;
+    transition: all 0.5s ease;
+}
+
+.slideup .shown{
+    display: flex !important;
+    opacity: 1 !important;
+}
+
+
+@media(max-width: 600px){
+    .mobile-screen{
+        display: block;
+    }
+    .cont{
+        position: relative;
+    }
+}
+
+@media(max-width: 370px){
+    .burger{
+        height: 3px !important;
+        width: 25px !important;
+    }
+    .mb-nav{
+    padding: 0 10px !important;
+    }
+}

@@ -1,0 +1,224 @@
+@import "../../../../colorvariables.scss";
+
+.order-details{
+    .header{
+        .back{
+            i{
+
+            }
+        }
+        h3{
+            margin: 10px 0 10px 10px;
+            color: #2e2e2e;
+            font-weight: 500;
+            font-size: 24px;
+            
+        }
+    }
+    .order-info{
+        padding: 10px 0;
+        h4{
+            margin: 10px 0;
+            font-size: 18px;
+            color: #474747;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+        p{
+            margin: 0;
+            margin-top: 5px;
+            color: #525252;
+            font-size: 15px;
+        }
+    }
+}          
+.order-items{
+    h3{
+        text-transform: uppercase;
+        font-size: 22px;
+        color: rgb(27, 27, 27);
+        font-weight: 500;
+        
+    }
+}
+
+.item{
+    width: 97%;
+    
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+    padding: 1.5%;
+    margin: 10px 0;
+    .product-image{
+        width: 120px;
+        height: 120px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .product-info{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        p{
+            margin: 0;
+            text-transform: capitalize;
+        }
+        .name{
+            font-size: 17px;
+            margin-bottom: 1px;
+            color: rgb(41, 41, 41);
+        }
+       
+        .order-vars{
+            font-size: 15px;
+            color: #8d8d8d;
+            margin-top: 4px;
+        }
+        .status{
+            margin-top: 20px;
+            font-size: 13px;
+            padding: 3px;
+            border-radius: 3px;
+            color: #fff;
+            background-color: #dadada;
+        }
+        .price{
+            margin-top: 35px;
+            font-size: 17px;
+        }
+    }
+    .details{
+        button{
+            margin: 0;
+        }
+    }
+
+    
+}
+
+.row{
+    width: 100%;
+    .card{
+        border: 1px solid #e9e9e9;
+        width: 50%;
+        height: 170px;
+        border-radius: 5px;
+        margin-right: 2.5%;
+        margin-top: 20px;
+        
+        .header{
+            height: 45px;
+            border-bottom: 1px solid #e9e9e9;
+            h3{
+                margin: 0;
+                padding-left: 20px;
+                text-transform: uppercase;
+                font-size: 14px;
+                color: #000;
+                width: 50%;
+            }
+            .icon{
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+                border-radius: 100px;
+                cursor: pointer;
+                transition: 0.3s all ease;
+                i{
+                    font-size: 20px;
+                    color: $primary;
+
+                }
+            }
+            .icon:hover{
+                background-color: rgba(158, 16, 75, 0.219);;
+
+            }
+        }
+        .body{
+            padding: 20px;
+            h5{
+                margin: 0;
+                margin-bottom: 7px;
+                font-weight: 600;
+                font-size: 14px;
+                color: #000;
+                text-transform: uppercase;
+            }
+            h3{
+                margin: 0;
+                margin-bottom: 7px;
+                font-weight: 500;
+                font-size: 14px;
+                color: #000;
+                text-transform: uppercase;
+            }
+            p{
+                margin: 0;
+                margin-top: 5px;
+                color: #808080;
+                font-size: 15px;
+                
+                
+            }
+            .price{
+                margin-top: 15px;
+                color: rgb(49, 49, 49);
+                font-size: 15px;
+
+            }
+            a{
+                display: inline-block;
+                margin: 0;
+                color: $primary;
+                margin-top: 35px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.need-help{
+    width: 100%;
+
+    h3{
+        text-transform: uppercase;
+        color: $primary;
+        font-size: 16px;
+        margin-top: 25px;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .card{
+        width: 100% !important;
+    }
+    .item{
+        .product-image{
+            height: 100px !important;
+            width: 100px !important;
+        }
+        .product-info{
+            margin-left: 5px;
+            .name{
+                font-size: 15px !important;
+            }
+            .order-vars{
+                font-size: 13px !important;
+            }
+            .price{
+                margin-top: 12px !important;
+                font-size: 16px !important;
+            }
+        }
+        .basic-button{
+            height: 36px !important;
+            width: 86px !important;
+            font-size: 12px !important;
+            font-weight: 400;
+        }
+    }
+}

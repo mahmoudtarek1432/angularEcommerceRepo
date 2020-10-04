@@ -1,0 +1,40 @@
+<div class="modal" fxLayout='column' [@modalslide]='globals.modalstatus'>
+  <div class="banner">
+    <img src="assets/Images/logo.png" alt="">
+  </div>
+  <div class="nav" >
+    <ul>
+      <li>home </li>
+      <li (click)="clickDropdown('toggleAccessories')">accessories <span class="fa fa-chevron-down"></span> </li>
+      <div class="drop-list" [@toggle]="toggledropdowns['toggleAccessories']">
+        <li>dummy</li>
+        <li>dummy</li>
+        <li>dummy</li>
+      </div>
+      <li (click)="clickDropdown('toggleShoes')">shoes <span class="fa fa-chevron-down"></span></li>
+      <div class="drop-list" [@toggle]="toggledropdowns['toggleShoes']">
+        <li>dummy</li>
+        <li>dummy</li>
+        <li>dummy</li>
+      </div>
+      <li (click)="clickDropdown('toggleBags')">bags <span class="fa fa-chevron-down"></span></li>
+      <div class="drop-list" [@toggle]="toggledropdowns['toggleBags']">
+        <li>dummy</li>
+        <li>dummy</li>
+        <li>dummy</li>
+      </div>
+      <li>contact us </li>
+    </ul>
+  </div>
+  <div class="flex-spacer"></div>
+  <div class="copyrights">
+    <p>Copyright © 2018 <span appHoverhighlight>VENTUR</span>. All Right Reserved.</p>
+  </div>
+  <div class="close" fxLayoutAlign='center center' >
+    <div class="flex-spacer"></div>
+    <div class="button" (click)='modaltriggered()'>
+      <span class="x1"></span>
+      <span class="x2"></span>
+    </div>
+  </div>
+</div>

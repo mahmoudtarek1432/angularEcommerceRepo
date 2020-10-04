@@ -1,0 +1,154 @@
+
+<div class="lg-screen">
+  <div class="top-header" 
+    fxLayout
+    fxLayoutAlign='start center'>
+    <div fxLayout
+          fxFlex='100px'>
+      <a fxFlex fxFlexOffset='25px' class="fa fa-facebook" href="#" appHoverhighlight></a>
+      <a fxFlex fxFlexOffset='25px' class="fa fa-instagram" href="#" appHoverhighlight></a>
+      <a fxFlex fxFlexOffset='25px' class="fa fa-twitter" href="#" appHoverhighlight></a>
+      <a fxFlex fxFlexOffset='25px' class="fa fa-google" href="#" appHoverhighlight></a>
+    </div>
+    <span class="flex-spacer"
+          fxFlex>
+    </span>
+   <!-- <div  class="myaccount-dropdown" (click)='onClickDrop()'
+          fxLayoutAlign='center center' >
+      <div appHoverhighlight fxLayoutAlign='center center' >
+        <span>MY ACCOUNT</span> <span class="fa fa-chevron-down"></span>
+      </div>
+      <div class="dropdown" [@toggle]='toggleAcc'>
+        <ul>
+          <li appHoverhighlight>register</li>
+          <li appHoverhighlight>login</li>
+          <li appHoverhighlight>shopping cart</li>
+          <li appHoverhighlight>checkout</li>
+        </ul>
+      </div>
+    </div>-->
+    <div class="myaccount-dropdown" fxLayoutAlign='center center'  *ngIf="globals.loggedIn;else loggedin">
+      <span class="fa fa-register"></span><a routerLink="/Account/Overview">Hi, {{UserInfo.FirstName}}</a>
+    </div>
+    <ng-template #loggedin>
+      <div class="myaccount-dropdown" fxLayoutAlign='center center' (click)='openAccountDialog()'>
+        <i class="fa fa-power-off"></i><span>LOG IN</span>
+      </div>
+    </ng-template>
+    </div>
+    <div class="partition"></div>
+
+    <nav 
+      data-offsetTop=''
+      appNavbarscroll
+      appHoverhighlight>
+    <div class="container"
+    fxLayout='coloumn'
+    fxLayoutAlign="start center">
+      <div class="image" fxFlex="20">
+        <img src="assets/Images/logo6.png" alt="logo">
+      </div>
+
+
+      <div class="half"
+          
+          fxLayout
+          style="height: 100%; width:80%">
+        <div   style="height: 100%">
+          <ul fxLayout
+              fxLayoutAlign="start center"  style="height: 100%"
+              >
+            <li appHoverhighlight class="toggle" routerLink='/home' ><a>home</a></li>
+            <div class="toggle"
+                  style="height: 100%"
+                  fxLayoutAlign="center center"
+                  (mouseover)="onMouseOverAccessories()"
+                  (mouseout)="onMouseOutAccessories()"
+                  appHoverhighlight >
+              <li appHoverhighlight fxLayoutAlign='center center' >accessories <i class="fa fa-chevron-down"></i></li>
+              <div class="dropdown" [@toggle]='toggleAccessories'>
+                <ul>
+                  <li appHoverhighlight>register</li>
+                  <li appHoverhighlight>login</li>
+                  <li appHoverhighlight>shopping cart</li>
+                  <li appHoverhighlight>checkout</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="toggle"
+                  style="height: 100%"
+                  fxLayoutAlign="center center"
+                  (mouseover)="onMouseOverShoes()"
+                  (mouseout)="onMouseOutShoes()"
+                  appHoverhighlight >
+                <li appHoverhighlight fxLayoutAlign='center center' >shoes <i class="fa fa-chevron-down"></i></li>
+              <div class="dropdown" [@toggle]='toggleShoes'>
+                <ul>
+                  <li appHoverhighlight>register</li>
+                  <li appHoverhighlight>login</li>
+                  <li appHoverhighlight>shopping cart</li>
+                  <li appHoverhighlight>checkout</li>
+                </ul>
+              </div>
+            </div>
+        
+            <div class="toggle"
+                  style="height: 100%"
+                  fxLayoutAlign="center center"
+                  (mouseover)="onMouseOverBags()"
+                  (mouseout)="onMouseOutBags()"
+                  appHoverhighlight >
+                <li appHoverhighlight fxLayoutAlign='center center' >bags <i class="fa fa-chevron-down"></i></li>
+              <div class="dropdown" [@toggle]='toggleBags'>
+                <ul>
+                  <li appHoverhighlight>register</li>
+                  <li appHoverhighlight>login</li>
+                  <li appHoverhighlight>shopping cart</li>
+                  <li appHoverhighlight>checkout</li>
+                </ul>
+              </div>
+            </div>
+            <li appHoverhighlight class="toggle">contact us</li>
+          </ul>
+        </div>
+        
+        <div class="flex-spacer"></div>
+        <div fxFlex
+            
+            style="height: 100%;
+             position: relative;"
+            fxLayoutAlign='center center'>
+            <div style="height: 100%;"
+                 fxLayoutAlign='center center'
+                 class="nav-icon"
+                 fxFlexOffset='25px'>
+              <span appHoverhighlight class=" fa fa-search" (click)="onClickDropSearch()"></span>
+              <div class="dropdown"
+                   [@toggle]='toggleSearch' fxLayout fxLayoutAlign="center center">
+                  <input type="text" name="search" placeholder="search">
+                  <button class="fa fa-search" type="submit"></button>
+               
+              </div>
+            </div>
+            <span appHoverhighlight
+                  class="nav-icon fa fa-heart"
+                  fxFlexOffset='25px'
+                  *ngIf="globals.loggedIn"
+                  routerLink="Account/SavedItems">
+
+            </span>
+            <span appHoverhighlight class="nav-icon fa fa-shopping-cart" fxFlexOffset='25px' routerLink="/cart">
+              <div class="float" fxLayoutAlign="center center">
+                <span>{{globals.cartContent}}</span>
+              </div>
+            </span>
+        </div>
+      </div>
+      
+    </div>
+</nav>
+</div>
+
+
+

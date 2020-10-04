@@ -1,0 +1,149 @@
+@import "../../../colorvariables.scss";
+
+.orders{
+    .title{
+        margin: 0;
+        font-weight: 500;
+        font-size: 25px;
+    }
+    .headers{
+        position: relative;
+        width: 100%;
+        margin-top:10px;
+        margin-bottom:20px;
+        .block{
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+            font-size: 18px;
+            margin: 0;
+            color: #666666;
+            p{
+               
+            }
+        }
+        .active::after{
+            content: "";
+            position: absolute;
+            top: 95%;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background-color: $primary;
+        }
+        .active{
+            p{
+                color: $primary;
+            }
+        }
+    }
+    .headers::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background-color: #dfdfdf;
+    }
+
+    .order-item{
+        width: 97%;
+        
+        border: 1px solid #dfdfdf;
+        border-radius: 3px;
+        padding: 1.5%;
+        margin: 10px 0;
+        .product-image{
+            width: 100px;
+            height: 100px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .product-info{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 5px;
+            p{
+                margin: 0;
+                text-transform: capitalize;
+            }
+            .name{
+                font-size: 17px;
+                margin-bottom: 1px;
+                color: rgb(41, 41, 41);
+            }
+           
+            .order-vars{
+                font-size: 15px;
+                color: #8d8d8d;
+                margin-bottom: 1px;
+            }
+            .status{
+                margin-top: 20px;
+                font-size: 13px;
+                padding: 3px;
+                border-radius: 3px;
+                color: #fff;
+                
+            }
+            .open{
+                background-color: #1beb14;
+            }
+            .closed{
+                background-color: #dadada;
+            }
+            .date{
+                font-size: 18px;
+                margin-top: 3px;
+            }
+        }
+        .details{
+
+            p{
+                margin: 5px;
+                color: $primary;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 599px){
+    .headers{
+        .block{
+            font-size: 15px !important;
+        }
+    }
+    .order-item{
+        .product-image{
+            width: 80px !important;
+            height: 80px !important;
+        }
+        .product-info{
+            .name{
+                font-size: 12px !important;
+            }
+            .id{
+                font-size: 11px !important;
+            }
+            .status{
+                margin-top: 10px !important;
+                font-size: 10px !important;
+            }
+            .date{
+                font-size: 13px !important;
+            }
+            
+        }
+        .details{
+            p{
+                font-size: 12px !important;
+            }
+        }
+    }
+}

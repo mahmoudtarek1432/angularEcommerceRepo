@@ -1,0 +1,38 @@
+<div fxLayout='column' fxLayoutAlign='center start'> 
+  <div class="title">
+    <h4>Create an Account</h4>
+  </div>
+  <form action="" method="POST" ngNoForm [formGroup]='registerForm'>
+    <mat-form-field class="half-width">
+      <mat-label>First Name</mat-label>
+      <input matInput  formControlName='firstname' name="firstname" pattern="[a-zA-Z]*">
+      <mat-error style="color: red; font-size: 10px;" *ngIf='formErrors.firstname'>{{formErrors.firstname}}</mat-error>
+    </mat-form-field>
+    <span style="margin: 5px;"></span>
+    <mat-form-field class="half-width">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName='lastname' name="lastname" pattern="[a-zA-Z]*">
+      <mat-error style="color: red; font-size: 10px;" *ngIf='formErrors.lastname'>{{formErrors.lastname}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput  formControlName='email' name="email">
+      <mat-error style="color: red; font-size: 10px;" *ngIf='formErrors.email'>{{formErrors.email}}</mat-error>
+    </mat-form-field>
+    <div class="spacer"></div>
+    <mat-form-field class="half-width">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName='password' name="password" pattern="[a-zA-Z0-9]*">
+      <mat-error style="color: red; font-size: 10px;" *ngIf='formErrors.password'>{{formErrors.password}}</mat-error>
+    </mat-form-field>
+    <span style="margin: 5px;"></span>
+    <mat-form-field class="half-width">
+      <mat-label>Redo Password</mat-label>
+      <input matInput formControlName='redoPassword' name="redoPassword" type="password">
+      <mat-error style="color: red; font-size: 10px;" *ngIf='formErrors.redoPassword'>{{formErrors.redoPassword}}</mat-error>
+    </mat-form-field>
+    <div style="width: 100%;" fxLayoutAlign='end center'>
+      <button class="basic-button" type="submit" [disabled]='!registerForm.valid'>register</button>
+    </div>
+  </form>
+</div>

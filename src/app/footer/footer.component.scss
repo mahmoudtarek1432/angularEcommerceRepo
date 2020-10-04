@@ -1,0 +1,85 @@
+@import '../../colorvariables.scss';
+footer{
+    background-color: $background-dark;
+    padding: 80px 0;
+    color: #fff;
+}
+
+.title{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.05em;
+    margin-bottom: 25px;
+}
+
+li{
+    margin-bottom: 15px;
+    color: $footer-secondary;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+}
+
+p{
+    color:$footer-secondary;
+}
+
+a{
+    border: 1px solid  $footer-secondary;
+    color:  $footer-secondary;
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+    transition: all 0.3s ease-in;
+}
+
+a.highlight{
+    background-color: #fff;
+}
+
+.partition{
+    background-color: rgb(63, 63, 63);
+}
+.copyrights{
+    padding: 20px 0;
+    background-color: rgb(22, 22, 26);
+    
+}
+
+@media(max-width: 1171px){
+    .container{
+        width: initial;
+    }
+}
+
+@media(max-width: 1171px){
+    .container{
+        width: initial;
+    }
+}
+
+@media(max-width: 511px){
+    .left{
+        margin-left: 0 !important;
+    }
+    .title{
+        font-size: 14px;
+        font-weight: 400;
+    }
+    footer{
+        padding: 10px;
+    }
+}
+
+@media(max-width: 375px){
+    .spliter{
+        margin-top: 10px;
+        flex-direction: column !important;
+    }
+    .copyrights{
+        p{
+            font-size: 12px;
+        }
+    }
+}
